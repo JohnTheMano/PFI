@@ -19,7 +19,7 @@ while opcion.lower() != ('salir') :
         opcion=(input("Seleccione una opcion entre 1 y 7 o escriba 'salir' para cerrar el programa: " ))
 
         while opcion == "1":
-            producto=(input("Ingrese nombre del producto:\t"))
+            producto=(input("Ingrese nombre del producto:\t")).capitalize()
             print(f'El nombre Ingresado es: {producto}\n')
             while True:
                 cantidad=(input("ingrese cantidad:\t"))
@@ -30,10 +30,19 @@ while opcion.lower() != ('salir') :
                    volver = input('Desea agregar otro producto? ')
                    if volver=="no":
                        opcion=""
-                       input('Presione cualquier tecla para volver al menú principal')
+                       input('\nPresione cualquier tecla para volver al menú principal')
                    break  
                 else:
                     print('La cantidad debe ser un numero entero! intente nuevamente...')
+                    
+
+        if opcion == "2":
+            producto_buscado = input("Ingrese el nombre del producto que desea buscar: ").capitalize()
+            for producto in productos:
+                if producto_buscado == producto[0]:
+                    print(f'\nEl stock del producto {producto[0]} es: {producto[1]}')
+                    input('\nPresione cualquier tecla para volver al menú principal')
+                          
 
         if opcion == "5":
             print("Lista de productos:")
